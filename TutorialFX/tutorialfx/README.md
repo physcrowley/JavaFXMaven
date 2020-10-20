@@ -1,19 +1,41 @@
-The full Java Extension Pack for VS Code was added before getting into this project.
+# About
+This file describes some of the configuration details for building JavaFX projects in VS Code.
 
-Project structure initially created with the org.openjfx simple Maven archetype > look for it in the "more..." entry and type "openjfx".
+# VS Code set-up
+The full *"Java Extension Pack"* for VS Code was added before getting into this project.
 
-The `pom.xml` file needs to immediately be modified to JavaFX version 11 and Java release 14
+It was possible to work only with the *"Language Support for Java"* extension on all previous projects, making manual configuration files, then compiling and running from the command line but the build structure for JavaFX projects is too heavy to manage manually.
 
-Following the tutorials from (JavaFX Tutorials for Beginners)[https://www.youtube.com/watch?v=Q_1cZYoGoYM&list=PLS1QulWo1RIaUGP446_pWLgTZPiFizEMq] on Youtube for the general progress of the project.
+# Maven
+It is important to also install *Maven* to be able to use the project building and managing tools effectively. This is what makes the biggest difference.
 
-Dependencies need to be added through Maven as you go : most notably `javafx-fxml`
+# Project structure
+Basic JavaFX projects can be set up with the org.openjfx *"javafx-archetype-simple"* Maven archetype > look for it when you add a new Java Project > Maven in the the "more..." entry and type "openjfx".
 
-The `module-info.java` file also needs to add the line
-```requires javafx.fxml;```
+## Changes to default settings
+The `pom.xml` file needs to be immediately modified, changing the Java version to your preferred value.
+*  Scan the file to find the **release** tag. Change it to the same level as your Java installation. For example, JavaSE-14 is the default installation on my computer, so I changed the release value to 14. The release value can value at or below the JDK level in your JAVA_HOME path variable.
+* Dependencies need to be added through Maven as you go : most notably `javafx-fxml` once you start working with that type of file and project structure.
+* Once fxml comes into play, the `module-info.java` file also needs to add the line
+    ```java
+    requires javafx.fxml;
+    ```
+    and eventually (once your project includes control classes)
+    ```java
+    opens <package> to javafx.fxml;
+    ```
 
-and eventually
-```opens <package> to javafx.fxml;```
+## Starting off with fxml
+If you are starting a project with `fxml`, it is better to use the Maven org.openjfx *"javafx-archetype-fxml"* Maven archetype, but the `pom.xml` file will still need to be adjusted to your installed/default release value.
 
-when annotations are added in the controller class.
+You may also need to remove some of the template `java` files or modify some folders to suit your own project.
 
-If you are starting a project with fxml, it is better to use the Maven org.openjfx fxml archetype, but the JavaFX and Java versions will still need to be adjusted to your installed/default values.
+# Project arc
+The project is being developed following the tutorials from (JavaFX Tutorials for Beginners)[https://www.youtube.com/watch?v=Q_1cZYoGoYM&list=PLS1QulWo1RIaUGP446_pWLgTZPiFizEMq].
+
+# Author
+David Crowley, EAO
+@physcrowley
+
+
+
