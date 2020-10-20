@@ -1,6 +1,6 @@
 The full Java Extension Pack for VS Code was added before getting into this project.
 
-Project structure initially created with the org.openjfx simple Maven archetype.
+Project structure initially created with the org.openjfx simple Maven archetype > look for it in the "more..." entry and type "openjfx".
 
 The `pom.xml` file needs to immediately be modified to JavaFX version 11 and Java release 14
 
