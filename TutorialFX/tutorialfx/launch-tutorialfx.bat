@@ -16,7 +16,7 @@ set modules=javafx.controls,javafx.fxml
 
 rem Set sources: include all .java files in the sources variable as a space-separated list
 set main-class=App
-set sources=%source-dir%/PrimaryController.java %source-dir%/%main-class%.java
+set sources=%source-dir%/PrimaryController.java %source-dir%/%main-class%.java module-info.java
 
 rem =================AUTOMATIC==========================
 
